@@ -24,8 +24,10 @@ class C_Noeri extends CI_Controller {
 	}
 
 	public function LinkMenu() 
-	{
-		$this->load->view('V_Menu');
+	{ 
+		$data_menu = $this->M_Menu->getAllMenu();
+		$temp['data'] = $data_menu;
+		$this->load->view('V_Menu', $temp);
 	}
 }
 
