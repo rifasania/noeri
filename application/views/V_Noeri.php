@@ -14,8 +14,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?php echo base_url(); ?>/assets/img/logo.png" rel="icon">
-  <link href="<?php echo base_url(); ?>/assets/img/logo.png" rel="logo">
+  <link href="<?php echo base_url(); ?>/assets/img/icon_restoran.jpg" rel="icon">
+  <link href="<?php echo base_url(); ?>/assets/img/icon_restoran.jpg" rel="logo">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -86,10 +86,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center justify-content-center">
     <div class="container position-relative">
-      <h1>Welcome to Noeri Kitchen</h1>
-      <h1>Welcome to Noeri Kitchen</h1>
-      <h2>"Simphoni Rasa, Pesta untuk Jiwa"</h2>
-      <h2>"Simphoni Rasa, Pesta untuk Jiwa"</h2>
+      <h1>Welcome to Noeri Kitchen</h1> 
+      <h2>"Simphoni Rasa, Pesta untuk Jiwa"</h2> 
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
   </section><!-- End Hero -->
@@ -156,7 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="col-md-6">
                 <!-- <i class="bx bx-cube-alt"></i> -->
                 <h4>Keunggulan</h4>
-                <p>Restoran kami menyediakan berbagai menu yang menggugah selera, namun dengan harga yang terjangkau.</p>
+                <p>Untuk menyajikan menu masakan yang spesial ditangani oleh chef profesional dan berpengalaman. Hidangan yang menggugah selera, namun harga tetap terjangkau</p>
               </div>
             </div>
           </div>
