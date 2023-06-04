@@ -88,6 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container position-relative">
       <h1>Welcome to Noeri Kitchen</h1>
       <h2>"Simphoni Rasa, Pesta untuk Jiwa"</h2>
+      <h2>"Simphoni Rasa, Pesta untuk Jiwa"</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
   </section><!-- End Hero -->
