@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center justify-content-center">
     <div class="container position-relative">
-
+ <!-- komen -->
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
   </section><!-- End Hero -->
