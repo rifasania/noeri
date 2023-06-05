@@ -29,6 +29,13 @@ class C_Noeri extends CI_Controller {
 		$temp['data'] = $data_menu;
 		$this->load->view('V_Menu', $temp);
 	}
+
+	public function LinkChef() 
+	{ 
+		$data_chef = $this->M_Chef->getAllChef();
+		$temp['data'] = $data_chef;
+		$this->load->view('V_Chef', $temp);
+	}
 }
 
 // NGANTUK BGT YA ALLAH
