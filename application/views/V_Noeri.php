@@ -14,8 +14,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="<?php echo base_url(); ?>/assets/img/icon_restoran.jpg" rel="icon">
-  <link href="<?php echo base_url(); ?>/assets/img/icon_restoran.jpg" rel="logo">
+  <link href="<?php echo base_url(); ?>/assets/img/1.png" rel="icon">
+  <link href="<?php echo base_url(); ?>/assets/img/1.png" rel="logo">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container d-flex align-items-center justify-content-between">
 
       <h1 class="logo">
-      <a href="" class="logo"><img src="<?php echo base_url();?>/assets/img/icon_restoran.jpg" alt="" class="img-fluid"></a>
+      <a href="" class="logo"><img src="<?php echo base_url();?>/assets/img/1.png" alt="" class="img-fluid"></a>
       <a href="">noeriKitchen</a>
       </h1>
 
@@ -185,7 +185,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
 
           <div class="col-lg-3 col-6 text-center">
-            <span data-purecounter-start="0" data-purecounter-end="38" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>
             <p>Chef</p>
           </div>
 
@@ -269,12 +269,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  Makanan nya sangat enak, pelayanan nya sangat baikk dan cepat
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
+                <h3>Asep Gunawan</h3>
+                <h4>pelanggan</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -282,12 +282,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
+                 Harga makanan nya wort it, pelayanan mantap baik sekali, makanan nya enak!!
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-2.jpg" class="testimonial-img" alt="">
                 <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
+                <h4>pelanggan</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -295,12 +295,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
+                  gudeg nya enak recommended, harganya terjangkau, pelayanan sangat ramah
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
                 <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
+                <h4>pelanggan</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -308,12 +308,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
+                  pelayanan perasmanan nya sangat baik, harganya terjangkau sangat wort it, penyajian makanan dari chef nya sangat lezatttt
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
                 <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
+                <h4>pelanggan</h4>
               </div>
             </div><!-- End testimonial item -->
 
@@ -321,12 +321,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
+                 pelayanan ramahh banget, menu makanan nya sangat enakkkkkkkk, murahhhhhh sangat terjangkau 
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
                 <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
+                <h4>pelanggan </h4>
               </div>
             </div><!-- End testimonial item -->
 
