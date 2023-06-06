@@ -47,6 +47,50 @@ class C_Noeri extends CI_Controller {
 		$pass_user = $this->input->post('pass_user');
 		$this->M_Login->getDataLogin($usn_user, $pass_user);
 	}
+
+	public function LinkRegister() 
+	{
+		$this->load->view('V_Register.php');
+	}
+	
+	public function InsertRegister(){
+		$nama_user = $this->input->post('nama_user');
+		$no_telp_user = $this->input->post('no_telp_user');
+		$email_user = $this->input->post('email_user');
+		$usn_user = $this->input->post('usn_user');
+		$pass_user = $this->input->post('pass_user');
+
+		$DataRegister = array (
+			'nama_user' => $nama_user, 
+			'no_telp_user' => $no_telp_user,
+			'email_user' => $email_user,
+			'usn_user' => $usn_user,
+			'pass_user' => $pass_user,
+		);
+
+		$this->M_Register->InsertDataRegister($DataRegister);
+	}
+
+	public function LinkOrder() 
+	{
+		$this->load->view('V_Order');
+	}
+
+	public function LinkLoginAdmin() 
+	{
+		$this->load->view('V_LoginAdmin.php');
+	}
+
+	public function CekLoginAdmin(){
+		$usn_admin = $this->input->post('usn_admin');
+		$pass_admin = $this->input->post('pass_admin');
+		$this->M_LoginAdmin->getDataAdmin($usn_admin, $pass_admin);
+	}
+
+	public function LinkDashboard() 
+	{
+		$this->load->view('V_Dashboard.php');
+	}
 }
 
 // NGANTUK BGT YA ALLAH

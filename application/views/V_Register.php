@@ -38,11 +38,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<div class="container-login100" style="background-image: url('<?php echo base_url(); ?>/assets/img/noerii.jpg');">
 			<div class="wrap-login100 p-t-30 p-b-50">
 				<span class="login100-form-title p-b-41">
-					Account Login
+					Account Register
 				</span>
 
 
-                <form action="<?php echo site_url('C_Noeri/CekLogin')?>" method="post" name="login" class="login100-form validate-form p-b-33 p-t-5">
+                <form action="<?php echo site_url('C_Noeri/InsertRegister')?>" method="post" name="register" class="login100-form validate-form p-b-33 p-t-5">
+                    <div class="wrap-input100 validate-input" data-validate = "Enter your name">
+						<input class="input100" type="text" name="nama_user" id="nama_user" placeholder="Full Name">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Enter your phone">
+						<input class="input100" type="text" name="no_telp_user" id="no_telp_user" placeholder="Telephone">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
+                    <div class="wrap-input100 validate-input" data-validate = "Enter your email">
+						<input class="input100" type="text" name="email_user" id="email_user" placeholder="Email">
+						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
+					</div>
+
                 	<div class="wrap-input100 validate-input" data-validate = "Enter username">
 						<input class="input100" type="text" name="usn_user" id="usn_user" placeholder="Username">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
@@ -53,21 +68,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
 
-                    <div class="container-login100-form-btn m-t-32">
-						<?php
-                            $info = $this->session->flashdata('info');
-                            if(!empty($info))
-                            {
-                                echo $info;
-                            }
-                        ?>
-					</div>
-
 					<div class="container-login100-form-btn m-t-32">
-						<button class="login100-form-btn" type="submit" value="login" name="login">
-							Login
+						<button class="login100-form-btn" type="submit" value="submit" name="register">
+							Register
 						</button>
-						<a href="<?php echo site_url('C_Noeri/LinkRegister')?>">Belum punya akun? Daftar sekarang!</a>
 					</div>
 
 				</form>
