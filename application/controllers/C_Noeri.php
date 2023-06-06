@@ -36,6 +36,17 @@ class C_Noeri extends CI_Controller {
 		$temp['data'] = $data_chef;
 		$this->load->view('V_Chef', $temp);
 	}
+
+	public function LinkLogin() 
+	{
+		$this->load->view('V_Login.php');
+	}
+
+	public function CekLogin(){
+		$usn_user = $this->input->post('usn_user');
+		$pass_user = $this->input->post('pass_user');
+		$this->M_Login->getDataLogin($usn_user, $pass_user);
+	}
 }
 
 // NGANTUK BGT YA ALLAH
