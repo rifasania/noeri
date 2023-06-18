@@ -141,7 +141,7 @@ class C_Noeri extends CI_Controller {
 		$foto = $_FILES['foto'];
 		if($foto = ''){}else{
 			$config['upload_path'] = './assets/img/menu';
-			$config['allowed_types'] = 'jpg|png|gif';
+			$config['allowed_types'] = 'jpg|jpeg|png|gif';
 
 			$this->load->library('upload', $config);
 			if(!$this->upload->do_upload('foto')){
@@ -166,22 +166,46 @@ class C_Noeri extends CI_Controller {
 
 	public function AksiEditMenu()
 	{
-		$id_mitra = $this->input->post('id_mitra'); 
-		$nama_mitra = $this->input->post('nama_mitra'); 
-		$alamat_mitra = $this->input->post('alamat_mitra');
-		$keterangan = $this->input->post('keterangan');
+		$data_menu = $this->M_Menu->getDataMenu($id);
 
-		$DataUpdate = array(
-			'id_mitra' => $id_mitra, 
-			'nama_mitra' => $nama_mitra, 
-			'alamat_mitra' => $alamat_mitra,
-			'keterangan' => $keterangan,
-		);
+		// Cek apakah ada file foto baru yang diunggah
+		if ($_FILES['foto_menu']['name']) {
+			// Mengunggah file foto baru
+			$config['upload_path'] = './assets/img/menu';
+			$config['allowed_types'] = 'jpg|jpeg|png'; 
+	
+			$this->load->library('upload', $config);
+	
+			if (!$this->upload->do_upload('foto')) {
+				// Jika gagal mengunggah foto baru, tampilkan pesan error
+				$error = $this->upload->display_errors();
+				// Lakukan penanganan error sesuai kebutuhan Anda
+			} else {
+				// Jika berhasil mengunggah foto baru, perbarui nilai kolom "foto_menu" dalam tabel database
+				$data['foto_menu'] = $this->upload->data('file_name');
+			}
+		} else {
+			// Jika tidak ada file foto baru yang diunggah, tetap gunakan foto yang sebelumnya
+			$data['foto_menu'] = $data_menu->foto_menu;
+		}
 
-		print_r($DataUpdate);
+		// $DataUpdate['id_menu'] = $this->input->post('id_menu');
+		$DataUpdate['nama_menu'] = $this->input->post('nama_menu');
+    	$DataUpdate['harga'] = $this->input->post('harga');
+    	$DataUpdate['deskripsi'] = $this->input->post('deskripsi');
+		$DataUpdate['id_chef'] = $this->input->post('id_chef');
+    	$DataUpdate['id_jenis'] = $this->input->post('id_jenis');
 
-		$this->M_Mitra->update($DataUpdate, $id_mitra);
-		redirect(base_url('C_Gelora/LinkMitra')); 
+		$id_menu = $this->input->post('id_menu'); 
+
+		$this->M_Menu->UpdateMenu($DataUpdate, $id_menu);
+		redirect(site_url('C_Noeri/LinkMenuAdmin')); 
+	}
+
+	public function AksiDeleteMenu($id_menu)
+	{
+		$this->M_Menu->DeleteDataMenu($id_menu);
+		redirect(site_url('C_Noeri/LinkMenuAdmin'));
 	}
 
 	public function LinkOrderAdmin() 
@@ -195,8 +219,7 @@ class C_Noeri extends CI_Controller {
 		$temp['data'] = $data_user;
 		$this->load->view('V_ListUser.php', $temp);
 	}
+
+	
 }
 
-// NGANTUK BGT YA ALLAH
-// CAPEEEE
-// PENGEN TURU

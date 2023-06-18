@@ -21,7 +21,7 @@ class M_Menu extends CI_Model {
         $this->db->insert('menu', $data);
     }
 
-    public function update($data, $id)
+    public function UpdateMenu($data, $id)
     {
         $this->db->where('id_menu', $id);
         $this->db->update('menu', $data );
@@ -32,6 +32,12 @@ class M_Menu extends CI_Model {
         $this->db->where('id_menu', $id);
         $query = $this->db->get('menu');
         return $query->row();
+    }
+
+    public  function DeleteDataMenu($id)
+    {
+        $this->db->where('id_menu', $id);
+        $this->db->delete('menu');
     }
 
 }
