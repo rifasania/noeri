@@ -138,7 +138,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-                <a class="btn btn-outline-primary btn-sm mb-0 me-3" href="<?php echo site_url('C_Noeri/FormAddChef')?>">Add Chef</a>
+              <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-material-dashboard">Online Builder</a>
             </li>
             <li class="mt-2">
               <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
@@ -247,63 +247,68 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">List Chef</h6>
+                <h6 class="text-white text-capitalize ps-3">Form Add Menu</h6>
               </div>
             </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2"> Chef</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Jenis Kelamin</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No. Telp</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                        $cacah = 1;
-		    	        foreach($data as $row){    
-		            ?>
-                    <tr>
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $cacah ?></h6>
-                      </td>
-                      <td>
-                      <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="<?php echo base_url();?>/assets/img/chef/<?= $row->foto_chef; ?>" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"><?= $row->nama_chef; ?></h6>     
-                            <p class="text-xs text-secondary mb-0"><?= $row->alamat_chef; ?></p>  
-                          </div>
-                        </div>                  
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm"><?= $row->jenis_kelamin_chef; ?></h6>
-                      </td>
-                     
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->no_telp_chef; ?></h6>
-                      </td>   
-                      
-                      </td>
-                      <td class="align-middle text-center">
-                      <a class="btn bg-gradient-primary w-40 my-4 mb-2" href="<?php echo site_url('C_Noeri/FormEditChef/'). $row->id_chef ?>">Update</a>
-                      <a class="btn bg-gradient-primary w-40 my-4 mb-2" href="<?php echo site_url('C_Noeri/AksiDeleteChef/'). $row->id_chef ?>">Delete</a>
-                      </td>
-                    </tr>
+            <div class="card-body">
+               
+                <?php echo form_open_multipart('C_Noeri/AksiAddChef'); ?>
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Nama Chef :</p>
+                    </td>  
+                    <td>
+                      <div class="input-group input-group-outline my-2"> 
+                      <input type="text" class="form-control" name="nama_chef" placeholder="Masukkan Nama Chef">
+                      </div>
+                    </td>                  
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Alamat Chef :</p>
+                    </td> 
+                    <td>
+                      <div class="input-group input-group-outline my-2"> 
+                      <input type="text" class="form-control" name="alamat_chef" placeholder="Masukkan Alamat Chef">
+                      </div>
+                    </td>                  
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Jenis Kelamin :</p>
+                    </td> 
+                    <td>
+                      <div class="input-group input-group-outline my-2"> 
+                      <input type="text" class="form-control" name="jenis_kelamin_chef" placeholder="Masukkan Jenis Kelamin">
+                      </div>
+                    </td>                  
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">No. Telp :</p>
+                    </td> 
+                    <td>
+                      <div class="input-group input-group-outline my-2"> 
+                      <input type="text" class="form-control" name="no_telp_chef" placeholder="Masukkan Nomor Telepon">
+                      </div>
+                    </td>                  
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Foto Chef :</p>
+                    </td> 
+                    <td>
+                      <div class="input-group input-group-outline my-2"> 
+                      <input type="file" class="form-control" name="foto">
+                      </div>
+                    </td>                  
+                  </tr>
 
-                    <?php
-                        $cacah++;
-                        }
-                    ?>    
-                    
-                  </tbody>
-                </table>
+                  <div class="align-middle text-center">
+                    <input class="btn bg-gradient-primary w-50 my-4 mb-2" type="submit" value="submit" name="submit">  
+                  </div>
+                  
+                <?php echo form_close(); ?>
               </div>
             </div>
           </div>

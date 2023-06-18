@@ -115,6 +115,11 @@ class C_Noeri extends CI_Controller {
 		$this->load->view('form_add_menu.php', $temp);
 	}
 
+	public function FormAddChef()
+	{ 
+		$this->load->view('form_add_chef.php');
+	}
+
 	public function FormEditMenu($id)
 	{
 		$recordMenu = $this->M_Menu->getDataMenu($id);
@@ -128,6 +133,17 @@ class C_Noeri extends CI_Controller {
 		);
 		
 		$this->load->view('form_edit_menu', $data);
+	}
+
+	public function FormEditChef($id)
+	{
+		$recordChef = $this->M_Chef->getDataChef($id); 
+		
+		$data = array(
+			'data_chef' => $recordChef
+		);
+		
+		$this->load->view('form_edit_chef', $data);
 	}
 
 	public function AksiAddMenu()
@@ -162,6 +178,38 @@ class C_Noeri extends CI_Controller {
 
 		$this->M_Menu->AddDataMenu($DataInsert);
 		redirect(site_url('C_Noeri/LinkMenuAdmin')); 
+	}
+
+	public function AksiAddChef()
+	{
+		$nama_chef = $this->input->post('nama_chef'); 
+		$alamat_chef = $this->input->post('alamat_chef');
+		$jenis_kelamin_chef = $this->input->post('jenis_kelamin_chef');
+		$no_telp_chef = $this->input->post('no_telp_chef'); 
+
+		$foto = $_FILES['foto'];
+		if($foto = ''){}else{
+			$config['upload_path'] = './assets/img/chef';
+			$config['allowed_types'] = 'jpg|jpeg|png';
+
+			$this->load->library('upload', $config);
+			if(!$this->upload->do_upload('foto')){
+				echo "Upload Gagal";die();
+			} else {
+				$foto=$this->upload->data('file_name');
+			}
+		}
+
+		$DataInsert = array (
+			'nama_chef' => $nama_chef, 
+			'alamat_chef' => $alamat_chef,
+			'jenis_kelamin_chef' => $jenis_kelamin_chef,
+			'no_telp_chef' => $no_telp_chef, 
+			'foto_chef' => $foto,
+		);
+
+		$this->M_Chef->AddDataChef($DataInsert);
+		redirect(site_url('C_Noeri/LinkChefAdmin')); 
 	}
 
 	public function AksiEditMenu()
@@ -202,10 +250,52 @@ class C_Noeri extends CI_Controller {
 		redirect(site_url('C_Noeri/LinkMenuAdmin')); 
 	}
 
+	public function AksiEditChef()
+	{
+		$data_menu = $this->M_Chef->getDataChef($id);
+
+		// Cek apakah ada file foto baru yang diunggah
+		if ($_FILES['foto_chef']) {
+			// Mengunggah file foto baru
+			$config['upload_path'] = './assets/img/chef';
+			$config['allowed_types'] = 'jpg|jpeg|png'; 
+	
+			$this->load->library('upload', $config);
+	
+			if (!$this->upload->do_upload('foto')) {
+				// Jika gagal mengunggah foto baru, tampilkan pesan error
+				$error = $this->upload->display_errors();
+				// Lakukan penanganan error sesuai kebutuhan Anda
+			} else {
+				// Jika berhasil mengunggah foto baru, perbarui nilai kolom "foto_chef" dalam tabel database
+				$data['foto_chef'] = $this->upload->data('file_name');
+			}
+		} else {
+			// Jika tidak ada file foto baru yang diunggah, tetap gunakan foto yang sebelumnya
+			$data['foto_chef'] = $data_chef->foto_chef;
+		}
+ 
+		$DataUpdate['nama_chef'] = $this->input->post('nama_chef');
+    	$DataUpdate['alamat_chef'] = $this->input->post('alamat_chef');
+    	$DataUpdate['jenis_kelamin_chef'] = $this->input->post('jenis_kelamin_chef');
+		$DataUpdate['no_telp_chef'] = $this->input->post('no_telp_chef'); 
+
+		$id_chef = $this->input->post('id_chef'); 
+
+		$this->M_Chef->UpdateChef($DataUpdate, $id_chef);
+		redirect(site_url('C_Noeri/LinkChefAdmin')); 
+	}
+
 	public function AksiDeleteMenu($id_menu)
 	{
 		$this->M_Menu->DeleteDataMenu($id_menu);
 		redirect(site_url('C_Noeri/LinkMenuAdmin'));
+	}
+
+	public function AksiDeleteChef($id_chef)
+	{
+		$this->M_Chef->DeleteDataChef($id_chef);
+		redirect(site_url('C_Noeri/LinkChefAdmin'));
 	}
 
 	public function LinkOrderAdmin() 
