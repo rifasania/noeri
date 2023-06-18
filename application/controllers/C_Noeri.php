@@ -91,6 +91,28 @@ class C_Noeri extends CI_Controller {
 	{
 		$this->load->view('V_Dashboard.php');
 	}
+
+	public function LinkMenuAdmin() 
+	{
+		$this->load->view('V_MenuAdmin.php');
+	}
+
+	public function LinkChefAdmin() 
+	{
+		$this->load->view('V_ChefAdmin.php');
+	}
+
+	public function LinkOrderAdmin() 
+	{
+		$this->load->view('V_OrderAdmin.php');
+	}
+
+	public function ListUser() 
+	{
+		$data_user = $this->M_ListUser->getAllUser();
+		$temp['data'] = $data_user;
+		$this->load->view('V_ListUser.php', $temp);
+	}
 }
 
 // NGANTUK BGT YA ALLAH
