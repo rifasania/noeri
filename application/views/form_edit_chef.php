@@ -22,7 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="<?php echo base_url()?>/assets/dashboard/assets/img/apple-icon.png">
-  <link rel="icon" type="image/jpg" href="<?php echo base_url()?>/assets/img/icon_restoran.jpg">
+  <link rel="icon" type="image/jpg" href="<?php echo base_url()?>/assets/img/1.png">
   
   <title>
     NOERI KITCHEN
@@ -307,7 +307,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </td> 
                     <td>
                       <div class="input-group input-group-outline my-2"> 
-                      <input type="file" class="form-control" name="foto" >
+                      <input type="file" class="form-control" name="foto_chef"  >
                       </div>
                     </td>                  
                   </tr>
