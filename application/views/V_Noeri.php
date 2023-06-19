@@ -243,7 +243,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="section-title">
           <h2>Testimonials</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -328,7 +327,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="section-title">
           <h2>Team</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Mengutamakan konsistensi dan inovasi layanan dalam berbagai aspek, termasuk produk dan aplikasi yang mendukung layanan bagi konsumen. Noeri Kitchen juga muncul sebagai Restoran yang mengedepankan kualitas produk.</p>
         </div>
 
         <div class="row">
@@ -387,7 +386,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
         <div class="row">
