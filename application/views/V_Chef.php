@@ -13,8 +13,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		
 		 <!-- Favicons -->
-		 <link href="<?php echo base_url(); ?>/assets/img/icon_restoran.jpg" rel="icon">
-  <link href="<?php echo base_url(); ?>/assets/img/icon_restoran.jpg" rel="logo">
+		 <link href="<?php echo base_url(); ?>/assets/img/1.png" rel="icon">
+  <link href="<?php echo base_url(); ?>/assets/img/1.png" rel="logo">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
