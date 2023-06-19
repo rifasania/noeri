@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container d-flex align-items-center justify-content-between">
 
       <h1 class="logo">
-      <a href="" class="logo"><img src="<?php echo base_url();?>/assets/img/icon_restoran.jpg" alt="" class="img-fluid"></a>
+      <a href="" class="logo"><img src="<?php echo base_url();?>/assets/img/1.png" alt="" class="img-fluid"></a>
       <a href="">noeriKitchen</a>
       </h1>
 

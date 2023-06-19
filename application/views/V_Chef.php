@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<h1 class="logo">
 					<a href="" class="logo"
 						><img
-							src="<?php echo base_url();?>/assets/img/icon_restoran.jpg"
+							src="<?php echo base_url();?>/assets/img/1.png"
 							alt=""
 							class="img-fluid"
 					/></a>
@@ -56,7 +56,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<ul>
 						<li><a class="nav-link scrollto active" href="#hero">Home</a></li>
 						<li><a class="nav-link scrollto" href="#about">About</a></li>
-						<li><a class="nav-link scrollto" href="#services">Services</a></li>
 						<li>
 							<a class="nav-link scrollto" href="#portfolio">Portfolio</a>
 						</li>
@@ -75,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<section id="hero" class="d-flex align-items-center justify-content-center">
 			<div class="container position-relative">
 				<h1>Welcome to Noeri Kitchen</h1>
-				<h2>"Simfoni Rasa, Pesta untuk Jiwa"</h2>
+				<h2>"Simphoni Rasa, Pesta untuk Jiwa"</h2>
 			</div>
 		</section>
 		<!-- End Hero -->
