@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="<?php echo site_url('C_Noeri/LinkMenuAdmin')?>">
+          <a class="nav-link text-white active bg-gradient-primary" href="<?php echo site_url('C_Noeri/LinkMenuAdmin')?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white bg-gradient-primary" href="<?php echo site_url('C_Noeri/LinkOrderAdmin')?>">
+          <a class="nav-link text-white " href="<?php echo site_url('C_Noeri/LinkOrderAdmin')?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -138,7 +138,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a class="btn btn-outline-primary btn-sm mb-0 me-3" href="<?php echo site_url('C_Noeri/FormAddMenu')?>">Add Menu</a>
+              <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank" href="https://www.creative-tim.com/builder?ref=navbar-material-dashboard">Online Builder</a>
             </li>
             <li class="mt-2">
               <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star creativetimofficial/material-dashboard on GitHub">Star</a>
@@ -247,72 +247,104 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">List Order</h6>
+                <h6 class="text-white text-capitalize ps-3">Form Edit Pesanan</h6>
               </div>
             </div>
-            <div class="card-body px-0 pb-2">
-              <div class="table-responsive p-0">
-                <table class="table align-items-center mb-0">
-                  <thead>
-                    <tr>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total Harga</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pembayaran</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tanggal</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Waktu</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                        $cacah = 1;
-		    	        foreach($order as $row){    
-		            ?>
-                    <tr>
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $cacah ?></h6>
-                      </td>
-                      <td>
-                      <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"><?= $row->nama; ?></h6>     
-                          </div>
-                        </div>                  
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm"><?= $row->total_harga; ?></h6>
-                      </td>
-                     
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->metode_bayar; ?></h6>
-                      </td>   
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->tanggal_pesanan; ?></h6>
-                      </td> 
+            <div class="card-body">
+               
+                <?php echo form_open_multipart('C_Noeri/AksiEditPesanan'); ?>
+                  <tr>  
+                      <td> 
+		          		<input type="hidden" name="id_pesanan" value="<?php echo $data_pesanan->id_pesanan ?>" disabled> 
+		          	  </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Nama Pemesan :</p>
+                    </td>  
+                    <td>
+                      <div class="input-group input-group-outline my-2"> 
+                      <input type="text" class="form-control" name="nama" value="<?php echo $data_pesanan->nama ?>" disabled>
+                      </div>
+                    </td>                  
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Total Harga :</p>
+                    </td> 
+                    <td>
+                      <div class="input-group input-group-outline my-2"> 
+                      <input type="text" class="form-control" name="total_harga" value="<?php echo $data_pesanan->total_harga ?>" disabled>
+                      </div>
+                    </td>                  
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Metode Pembayaran :</p>
+                    </td> 
+                    <td>
+                      <div class="input-group input-group-outline my-2"> 
+                      <select class="form-control form-select" name="id_pembayaran" disabled>
+                        <?php             
+                           //ulangi untuk semua elemen pendidikan
+                           foreach ($bayar as $b){
+                        ?>    
+                               <option value="<?= $b->id_pembayaran; ?>"><?= $b->metode_bayar; ?></option>
 
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->waktu_pesanan; ?></h6>
-                      </td> 
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->keterangan_status; ?></h6>
-                      </td> 
-                      
-                      </td>
-                      <td class="align-middle text-center">
-                      <a class="btn bg-gradient-primary w-40 my-4 mb-2" href="<?php echo site_url('C_Noeri/FormEditPesanan/'). $row->id_pesanan ?>">Update</a>
-                      <a class="btn bg-gradient-primary w-40 my-4 mb-2" href="<?php echo site_url('C_Noeri/AksiDeletePesanan/'). $row->id_pesanan ?>">Delete</a>
-                      </td>
-                    </tr>
+                        <?php       
+                           }            
+                        ?>
+                      </select>
+                      </div>
+                    </td>                  
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Tanggal Pemesanan :</p>
+                    </td> 
+                    <td>
+                      <div class="input-group input-group-outline my-2"> 
+                      <input type="text" class="form-control" name="tanggal_pesanan" value="<?php echo $data_pesanan->tanggal_pesanan ?>" disabled>
+                      </div>
+                    </td>                  
+                  </tr>
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Waktu Pemesanan :</p>
+                    </td> 
+                    <td>
+                      <div class="input-group input-group-outline my-2"> 
+                      <input type="text" class="form-control" name="waktu_pesanan" value="<?php echo $data_pesanan->waktu_pesanan ?>" disabled>
+                      </div>
+                    </td>                  
+                  </tr>
+                 
+                  <tr>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">Status Pesanan :</p>
+                    </td> 
+                    <td>
+                      <div class="input-group input-group-outline my-2"> 
+                      <select class="form-control form-select" name="id_status_pesanan">
+                        <?php             
+                           //ulangi untuk semua elemen pendidikan
+                           foreach ($status as $s){
+                        ?>    
+                               <option value="<?= $s->id_status_pesanan; ?>"><?= $s->keterangan_status; ?></option>
 
-                    <?php
-                        $cacah++;
-                        }
-                    ?>    
-                    
-                  </tbody>
-                </table>
+                        <?php       
+                           }            
+                        ?>
+                      </select>
+                      </div>
+                    </td>                  
+                  </tr>
+
+                  <div class="align-middle text-center">
+                    <input class="btn bg-gradient-primary w-50 my-4 mb-2" type="submit" value="submit" name="submit">  
+                  </div>
+                  
+                <?php echo form_close(); ?>
               </div>
             </div>
           </div>

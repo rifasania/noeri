@@ -310,7 +310,9 @@ class C_Noeri extends CI_Controller {
 
 	public function LinkOrderAdmin() 
 	{
-		$this->load->view('V_OrderAdmin.php');
+		$order = $this->M_Pesanan->getAllPesanan();
+		$temp['order'] = $order;
+		$this->load->view('V_OrderAdmin.php', $temp);
 	}
 
 	public function ListUser() 
@@ -403,6 +405,44 @@ class C_Noeri extends CI_Controller {
 		redirect(site_url('C_Noeri/ProsesPemesanan')); 
 	}
 
+	public function FormEditPesanan($id_pesanan)
+	{
+		$data_pesanan = $this->M_Pesanan->getDataPesanan($id_pesanan);
+		$bayar = $this->M_Pesanan->getMetodePembayaran(); 
+		$status = $this->M_Pesanan->getStatusPesanan();
+		$temp['data_pesanan'] = $data_pesanan;
+		$temp['bayar'] = $bayar;
+		$temp['status'] = $status;
+		$this->load->view('form_edit_order', $temp);
+	}
+
+	public function AksiEditPesanan()
+	{
+		$id_pesanan = $this->input->post('id_pesanan'); 
+		$nama = $this->input->post('nama'); 
+		$id_status_pesanan = $this->input->post('id_status_pesanan');
+		$id_pembayaran = $this->input->post('id_pembayaran');
+		$total_harga = $this->input->post('total_harga');
+		// $tanggal_pesanan = $this->input->post('tanggal_pesanan');
+		// $waktu_pesanan = $this->input->post('waktu_pesanan');
+
+		$DataUpdate = array(
+			'id_pesanan' => $id_pesanan, 
+			'nama' => $nama, 
+			'id_status_pesanan' => $id_status_pesanan,
+			'id_pembayaran' => $id_pembayaran,
+			'total_harga' => $total_harga,
+			// 'tanggal_pesanan' => $tanggal_pesanan,
+			// 'waktu_pesanan' => $waktu_pesanan,
+		); 
+
+		print_r($DataUpdate);
+
+		$this->M_Pesanan->UpdatePesanan($DataUpdate, $id_pesanan);
+		redirect(site_url('C_Noeri/LinkOrderAdmin')); 
+	
+	}
+
 	public function aksiOrder()
 	{
 		$order = $this->M_Pesanan->getAllPesanan();
@@ -420,9 +460,9 @@ class C_Noeri extends CI_Controller {
 		redirect (site_url('C_Noeri/LinkOrderAdmin')); 
 	}
 
-	public function AksiDeleteOrder($id_Pesanan)
+	public function AksiDeletePesanan($id_pesanan)
 	{
-		$this->M_Pesanan->DeleteDataOrder($id_Pesanan);
+		$this->M_Pesanan->DeletePesanan($id_pesanan);
 		redirect(site_url('C_Noeri/LinkOrderAdmin'));
 	}
 
