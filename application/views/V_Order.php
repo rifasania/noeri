@@ -50,8 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </h1>
 
       <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/index')?>">Home</a></li>
+        <ul> 
           <li><a class="nav-link scrollto active" href="<?php echo site_url('C_Noeri/LinkOrder')?>">Order</a></li>
           <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkPesanan')?>">Pesanan Anda</a></li>
           <li><a class="nav-link scrollto" href="">Logout</a></li>
@@ -81,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="d-flex justify-content-between align-items-center">
           <h2>Daftar Menu</h2>
           <ol>
-            <li><a href="<?php echo site_url('C_Noeri/index')?>">Home</a></li>
+            <li>Home</li>
             <li>Daftar Menu</li>
           </ol>
         </div>
@@ -101,7 +100,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <h2>DAFTAR MENU</h2>
           <p>Berikut daftar menu yang tersedia di restoran kami.</p>
         </div>
-        <a class="btn btn-success" href="<?php echo site_url('C_Noeri/LinkPesanan')?>">Lihat Pesanan Anda</a>
 
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">

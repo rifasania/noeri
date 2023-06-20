@@ -18,6 +18,8 @@ class C_Noeri extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/userguide3/general/urls.html
 	 */
+
+	
 	public function index() 
 	{
 		$this->load->view('V_Noeri');
@@ -247,29 +249,6 @@ class C_Noeri extends CI_Controller {
 			// Jika tidak ada file foto baru yang diunggah, tetap gunakan foto yang sebelumnya
 			$DataUpdate['foto_menu'] = $data_Menu->foto_menu;
 	   	}
-
-		// $data_menu = $this->M_Menu->getDataMenu($id);
-
-		// // Cek apakah ada file foto baru yang diunggah
-		// if ($_FILES['foto_menu']['name']) {
-		// 	// Mengunggah file foto baru
-		// 	$config['upload_path'] = './assets/img/menu';
-		// 	$config['allowed_types'] = 'jpg|jpeg|png'; 
-	
-		// 	$this->load->library('upload', $config);
-	
-		// 	if (!$this->upload->do_upload('foto_menu')) {
-		// 		// Jika gagal mengunggah foto baru, tampilkan pesan error
-		// 		$error = $this->upload->display_errors();
-		// 		// Lakukan penanganan error sesuai kebutuhan Anda
-		// 	} else {
-		// 		// Jika berhasil mengunggah foto baru, perbarui nilai kolom "foto_menu" dalam tabel database
-		// 		$DataUpdate['foto_menu'] = $this->upload->data('file_name');
-		// 	}
-		// } else {
-		// 	// Jika tidak ada file foto baru yang diunggah, tetap gunakan foto yang sebelumnya
-		// 	$DataUpdate['foto_menu'] = $data_menu->foto_menu;
-		// }
 
 		// $DataUpdate['id_menu'] = $this->input->post('id_menu');
 		$DataUpdate['nama_menu'] = $this->input->post('nama_menu');
