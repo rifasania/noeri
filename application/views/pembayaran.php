@@ -100,89 +100,71 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       
 
         <div class="section-title">
-          <h2>DAFTAR MENU</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>FORM PEMBAYARAN</h2>
+          <p>Silakan lengkapi form berikut.</p>
         </div>
-        <a class="btn btn-success" href="<?php echo site_url('C_Noeri/LinkPesanan')?>">Lihat Pesanan Anda</a>
+        
+
+        
+     
+                            <?php
+                                $total_harga = 0;
+                                if($keranjang = $this->cart->contents())
+                                {
+                                    foreach($keranjang as $item)
+                                    {
+                                        $total_harga = $total_harga + $item['subtotal'];
+                                    }
+                                }
+                            ?>
+                      
+  
+
+  <section id="contact" class="contact">
+      <div class="container">
 
         <div class="row">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-app">Food</li>
-              <li data-filter=".filter-card">Drink</li>
-              <li data-filter=".filter-web">Snacks</li>
-            </ul>
-          </div>
-        </div>
 
+          <div class="col-lg-6">
+       
+            <?php echo form_open('C_Noeri/AksiAddPesanan'); ?>
+              
+              <div class="form-group mt-3">
+                <label>Nama :</label>
+                <input type="text" class="form-control" name="nama" id="nama" placeholder="Masukkan Nama" required>
+              </div>
+              <div class="form-group mt-3">
+                <label>Total Belanja :</label>
+                <input type="text" class="form-control" name="total_harga" id="total_harga" value="<?php echo number_format($total_harga, 0,',','.')  ?>" disabled>
+              </div>
+              <div class="form-group mt-3">
+                <label>Pilih Metode Pembayaran :</label>
+                <select class="form-control form-select" name="id_pembayaran">
+                        <?php             
+                           //ulangi untuk semua elemen
+                           foreach ($bayar as $row){
+                        ?>    
+                               <option value="<?= $row->id_pembayaran; ?>"><?= $row->metode_bayar; ?></option>
 
-        <div class="row portfolio-container">
+                        <?php       
+                           }            
+                        ?>
+                      </select>
+              </div>
+              <input type="hidden" name="id_status_pesanan" value="1" > 
+              <input type="hidden" name="total_harga" value="<?= $total_harga; ?>" > 
             
-            <?php
-		    	foreach($data_makanan as $row){    
-		    ?>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app" >
-            <img src="<?php echo base_url();?>/assets/img/menu/<?= $row->foto_menu; ?>"  class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4><?= $row->nama_menu; ?> </h4>
-              <p>RP. <?=number_format($row->harga,0,"",".")?> </p> 
-              <p><a class="btn btn-outline-light btn-sm" href="<?php echo site_url('C_Noeri/tambahKeranjang/'). $row->id_menu?>"><i class="bx bx-plus"></i>Tambah ke pesanan</a></p>
+              <div class="align-middle text-center">
+                    <input class="btn btn-warning w-50 my-4 mb-2" type="submit" value="PESAN" name="submit">  
+                  </div>
               
-              
-            </div>
+                  <?php echo form_close(); ?>
           </div>
 
-          <?php
-          }
-          ?>
-
-            <?php
-		    	foreach($data_minuman as $row){    
-		    ?>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card" >
-            <img src="<?php echo base_url();?>/assets/img/menu/<?= $row->foto_menu; ?>"  class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4><?= $row->nama_menu; ?> </h4>
-              <p>RP. <?=number_format($row->harga,0,"",".")?> </p>
-              
-              <p><a class="btn btn-outline-light btn-sm" href="<?php echo site_url('C_Noeri/tambahKeranjang/'). $row->id_menu?>"><i class="bx bx-plus"></i>Tambah ke pesanan</a></p>
-              
-            </div>
-          </div>
-
-          <?php
-          }
-          ?>
-
-            <?php
-		    	foreach($data_snack as $row){    
-		    ?>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web" >
-            <img src="<?php echo base_url();?>/assets/img/menu/<?= $row->foto_menu; ?>"  class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4><?= $row->nama_menu; ?> </h4>
-              <p>RP. <?=number_format($row->harga,0,"",".")?> </p>
-              
-              <p><a class="btn btn-outline-light btn-sm" href="<?php echo site_url('C_Noeri/tambahKeranjang/'). $row->id_menu?>"><i class="bx bx-plus"></i>Tambah ke pesanan</a></p>
-              
-            </div>
-          </div>
-
-          <?php
-          }
-          ?>
-          
         </div>
 
       </div>
-    </section><!-- End Portfolio Section -->
-    </section>
-
-  </main><!-- End #main -->
+    </section><!-- End Contact Section -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">

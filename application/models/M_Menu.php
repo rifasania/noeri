@@ -10,6 +10,24 @@ class M_Menu extends CI_Model {
         return $query->result();
     }
 
+    public function getMakanan()
+    {
+        $query = $this->db->query("SELECT * FROM menu INNER JOIN jenis_menu ON menu.id_jenis = jenis_menu.id_jenis INNER JOIN chef ON menu.id_chef = chef.id_chef WHERE menu.id_jenis = '1'");
+        return $query->result();
+    }
+
+    public function getMinuman()
+    {
+        $query = $this->db->query("SELECT * FROM menu INNER JOIN jenis_menu ON menu.id_jenis = jenis_menu.id_jenis INNER JOIN chef ON menu.id_chef = chef.id_chef WHERE menu.id_jenis = '2'");
+        return $query->result();
+    }
+
+    public function getSnack()
+    {
+        $query = $this->db->query("SELECT * FROM menu INNER JOIN jenis_menu ON menu.id_jenis = jenis_menu.id_jenis INNER JOIN chef ON menu.id_chef = chef.id_chef WHERE menu.id_jenis = '3'");
+        return $query->result();
+    }
+
     public function getJenisMenu()
     {
         $query = $this->db->query("SELECT * FROM jenis_menu");

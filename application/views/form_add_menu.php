@@ -291,7 +291,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <div class="input-group input-group-outline my-2"> 
                       <select class="form-control form-select" name="id_chef">
                         <?php             
-                           //ulangi untuk semua elemen pendidikan
+                           //ulangi untuk semua elemen
                            foreach ($data_chef as $row){
                         ?>    
                                <option value="<?= $row->id_chef; ?>"><?= $row->nama_chef; ?></option>
@@ -311,7 +311,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <div class="input-group input-group-outline my-2"> 
                       <select class="form-control form-select" name="id_jenis">
                         <?php             
-                           //ulangi untuk semua elemen pendidikan
+                           //ulangi untuk semua elemen
                            foreach ($data as $row){
                         ?>    
                                <option value="<?= $row->id_jenis; ?>"><?= $row->nama_jenis; ?></option>

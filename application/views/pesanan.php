@@ -100,12 +100,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       
 
         <div class="section-title">
-          <h2>DAFTAR MENU</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>DAFTAR PESANAN ANDA</h2>
+          <p>Berikut daftar lengkap menu yang Anda pesan.</p>
         </div>
-        <a class="btn btn-success" href="<?php echo site_url('C_Noeri/LinkPesanan')?>">Lihat Pesanan Anda</a>
+        
 
-        <div class="row">
+        <!-- <div class="row">
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
@@ -114,67 +114,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <li data-filter=".filter-web">Snacks</li>
             </ul>
           </div>
-        </div>
+        </div> -->
 
 
-        <div class="row portfolio-container">
+        <div align="right" class="container">
+
+            <table class="table table-bordered table-striped table-hover">
+               <thead>
+                 <tr>
+                   <th>No</th>
+                   <th>Menu</th>
+                   <th>Total</th>
+                   <th>Harga</th>
+                 </tr>
+               </thead>
+                    
+               <tbody>
+                <?php 
+                $cacah = 1;
+                foreach($keranjang as $item)
+                 {
+                ?>    
+                 <tr> 
+                 <td><?php echo $cacah ?></td>
+                   <td><?php echo $item['name'] ?></td>
+                   <td><?php echo $item['qty'] ?></td>
+                   <td>Rp. <?php echo number_format($item['price'], 0,',','.')  ?></td>
+                 </tr>
+
+                 <?php
+                 $cacah++;
+                 }
+                 ?>
+
+                 <tr>
+                    <td colspan = "3">Total Harga</td>
+                 <td>Rp. <?php echo number_format($this->cart->total(), 0,',','.')  ?></td>
+                 </tr>
+                 
+             </table>
             
-            <?php
-		    	foreach($data_makanan as $row){    
-		    ?>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app" >
-            <img src="<?php echo base_url();?>/assets/img/menu/<?= $row->foto_menu; ?>"  class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4><?= $row->nama_menu; ?> </h4>
-              <p>RP. <?=number_format($row->harga,0,"",".")?> </p> 
-              <p><a class="btn btn-outline-light btn-sm" href="<?php echo site_url('C_Noeri/tambahKeranjang/'). $row->id_menu?>"><i class="bx bx-plus"></i>Tambah ke pesanan</a></p>
-              
-              
-            </div>
-          </div>
-
-          <?php
-          }
-          ?>
-
-            <?php
-		    	foreach($data_minuman as $row){    
-		    ?>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card" >
-            <img src="<?php echo base_url();?>/assets/img/menu/<?= $row->foto_menu; ?>"  class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4><?= $row->nama_menu; ?> </h4>
-              <p>RP. <?=number_format($row->harga,0,"",".")?> </p>
-              
-              <p><a class="btn btn-outline-light btn-sm" href="<?php echo site_url('C_Noeri/tambahKeranjang/'). $row->id_menu?>"><i class="bx bx-plus"></i>Tambah ke pesanan</a></p>
-              
-            </div>
-          </div>
-
-          <?php
-          }
-          ?>
-
-            <?php
-		    	foreach($data_snack as $row){    
-		    ?>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-web" >
-            <img src="<?php echo base_url();?>/assets/img/menu/<?= $row->foto_menu; ?>"  class="img-fluid" alt="">
-            <div class="portfolio-info">
-              <h4><?= $row->nama_menu; ?> </h4>
-              <p>RP. <?=number_format($row->harga,0,"",".")?> </p>
-              
-              <p><a class="btn btn-outline-light btn-sm" href="<?php echo site_url('C_Noeri/tambahKeranjang/'). $row->id_menu?>"><i class="bx bx-plus"></i>Tambah ke pesanan</a></p>
-              
-            </div>
-          </div>
-
-          <?php
-          }
-          ?>
+             <a class="btn btn-warning" href="<?php echo site_url('C_Noeri/hapusKeranjang')?>">Hapus Pesanan</a>
+             <a class="btn btn-warning" href="<?php echo site_url('C_Noeri/LinkOrder')?>">Tambah Pesanan</a>
+             <a class="btn btn-warning" href="<?php echo site_url('C_Noeri/LinkPembayaran')?>">Pembayaran</a>
           
         </div>
 
