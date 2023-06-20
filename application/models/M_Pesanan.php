@@ -21,6 +21,19 @@ class M_Pesanan extends CI_Model {
         return $query->result();
     }
 
+    public function getPesananMenu($id)
+    {
+        $this->db->select('*');
+        $this->db->from('pesanan_menu');
+        $this->db->join('menu', 'pesanan_menu.id_menu = menu.id_menu', 'inner');
+        $this->db->where('pesanan_menu.id_pesanan', $id);
+        $query = $this->db->get();
+        return $query->result();
+        // $this->db->where('id_pesanan', $id);
+        // $query = $this->db->get('pesanan_menu');
+        // return $query->result();
+    }
+
     public function AddDataPesanan($data)
     {
         $this->db->insert('pesanan', $data);

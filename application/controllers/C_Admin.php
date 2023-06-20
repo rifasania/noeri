@@ -53,6 +53,11 @@ class C_Admin extends CI_Controller {
 		$this->load->view('form_add_chef.php');
 	}
 
+    public function FormAddAdmin()
+	{ 
+		$this->load->view('form_add_admin.php');
+	}
+
 	public function FormEditMenu($id)
 	{
 		$recordMenu = $this->M_Menu->getDataMenu($id);
@@ -110,7 +115,7 @@ class C_Admin extends CI_Controller {
 		);
 
 		$this->M_Menu->AddDataMenu($DataInsert);
-		redirect(site_url('C_Noeri/LinkMenuAdmin')); 
+		redirect(site_url('C_Admin/LinkMenuAdmin')); 
 	}
 
 	public function AksiAddChef()
@@ -142,7 +147,29 @@ class C_Admin extends CI_Controller {
 		);
 
 		$this->M_Chef->AddDataChef($DataInsert);
-		redirect(site_url('C_Noeri/LinkChefAdmin')); 
+		redirect(site_url('C_Admin/LinkChefAdmin')); 
+	}
+
+    public function AksiAddAdmin()
+	{
+		$usn_user = $this->input->post('usn_user'); 
+		$pass_user = $this->input->post('pass_user');
+		$email_user = $this->input->post('email_user');
+		$nama_user = $this->input->post('nama_user'); 
+        $no_telp_user = $this->input->post('no_telp_user'); 
+        $id_role = $this->input->post('id_role'); 
+
+		$DataInsert = array (
+			'usn_user' => $usn_user, 
+			'pass_user' => $pass_user,
+			'email_user' => $email_user,
+			'nama_user' => $nama_user, 
+			'no_telp_user' => $no_telp_user,
+            'id_role' => $id_role
+		);
+
+		$this->M_ListUser->AddDataAdmin($DataInsert);
+		redirect(site_url('C_Admin/ListAdmin')); 
 	}
 
 	public function AksiEditMenu()
@@ -182,7 +209,7 @@ class C_Admin extends CI_Controller {
 		$id_menu = $this->input->post('id_menu'); 
 
 		$this->M_Menu->UpdateMenu($DataUpdate, $id_menu);
-		redirect(site_url('C_Noeri/LinkMenuAdmin')); 
+		redirect(site_url('C_Admin/LinkMenuAdmin')); 
 	}
 
 	public function AksiEditChef()
@@ -220,19 +247,31 @@ class C_Admin extends CI_Controller {
 		$id_chef = $this->input->post('id_chef'); 
 
 		$this->M_Chef->UpdateChef($DataUpdate, $id_chef);
-		redirect(site_url('C_Noeri/LinkChefAdmin')); 
+		redirect(site_url('C_Admin/LinkChefAdmin')); 
 	}
 
 	public function AksiDeleteMenu($id_menu)
 	{
 		$this->M_Menu->DeleteDataMenu($id_menu);
-		redirect(site_url('C_Noeri/LinkMenuAdmin'));
+		redirect(site_url('C_Admin/LinkMenuAdmin'));
 	}
 
 	public function AksiDeleteChef($id_chef)
 	{
 		$this->M_Chef->DeleteDataChef($id_chef);
-		redirect(site_url('C_Noeri/LinkChefAdmin'));
+		redirect(site_url('C_Admin/LinkChefAdmin'));
+	}
+
+    public function AksiDeletePesanan($id_pesanan)
+	{
+		$this->M_Pesanan->DeletePesanan($id_pesanan);
+		redirect(site_url('C_Admin/LinkOrderAdmin'));
+	}
+
+    public function AksiDeleteAdmin($id_user)
+	{
+		$this->M_ListUser->DeleteAdmin($id_user);
+		redirect(site_url('C_Admin/ListAdmin'));
 	}
 
 	public function LinkOrderAdmin() 
@@ -247,6 +286,13 @@ class C_Admin extends CI_Controller {
 		$data_user = $this->M_ListUser->getAllUser();
 		$temp['data'] = $data_user;
 		$this->load->view('V_ListUser.php', $temp);
+	}
+
+    public function ListAdmin() 
+	{
+		$data_admin = $this->M_ListUser->getAllAdmin();
+		$temp['data'] = $data_admin;
+		$this->load->view('V_ListAdmin.php', $temp);
 	}
 
     public function FormEditPesanan($id_pesanan)
@@ -283,27 +329,18 @@ class C_Admin extends CI_Controller {
 		print_r($DataUpdate);
 
 		$this->M_Pesanan->UpdatePesanan($DataUpdate, $id_pesanan);
-		redirect(site_url('C_Noeri/LinkOrderAdmin')); 
+		redirect(site_url('C_Admin/LinkOrderAdmin')); 
 	
 	}
 
-	public function AksiUpdateOrder($id_pesanan)
-	{
-		global $conn;
-		$id = $order['id_pesanan'];
-		$nama = $order['nama'];
-		$status =$order['id_status_pesanan'];
-		$pembayaran = $order['id-pembayaran'];
-		$waktu = $order['waktu_pesanan'];
-		$harga = $order['total_harga'];
-		$tanggal_pesanan=$order['tanggal_pesanan'];
+    public function DetailPesanan($id)
+    {
+        $data = $this->M_Pesanan->getPesananMenu($id);
 
-		$Order_pesanan = aksiOrder();
-		if($status != "")
-		{
-			 
-		}
-	}
+        $temp['data_pesanan'] = $data;
+        $this->load->view('V_Details', $temp);
+    }
+
 	
 }
 

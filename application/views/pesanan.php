@@ -125,6 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    <th>Menu</th>
                    <th>Total</th>
                    <th>Harga</th>
+                   <th></th>
                  </tr>
                </thead>
                     
@@ -139,6 +140,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    <td><?php echo $item['name'] ?></td>
                    <td><?php echo $item['qty'] ?></td>
                    <td>Rp. <?php echo number_format($item['price'], 0,',','.')  ?></td>
+                   <td align="center">
+                    <a href="<?php echo site_url('C_Noeri/hapusMenuDariKeranjang/'). $item['rowid'] ?>" class="btn btn-secondary btn-sm">Hapus Menu</a>
+                    </td>
                  </tr>
 
                  <?php
@@ -149,6 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                  <tr>
                     <td colspan = "3">Total Harga</td>
                  <td>Rp. <?php echo number_format($this->cart->total(), 0,',','.')  ?></td>
+                 
                  </tr>
                  
              </table>
