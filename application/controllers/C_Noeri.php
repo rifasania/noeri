@@ -258,7 +258,7 @@ class C_Noeri extends CI_Controller {
 
 	public function AksiEditChef()
 	{
-		$data_menu = $this->M_Chef->getDataChef($id);
+		$data_chef = $this->M_Chef->getDataChef($id);
 
 		// Cek apakah ada file foto baru yang diunggah
 		if ($_FILES['foto_chef']) {
@@ -268,12 +268,12 @@ class C_Noeri extends CI_Controller {
 	
 			$this->load->library('upload', $config);
 	
-			if (!$this->upload->do_upload('foto')) {
+			if (!$this->upload->do_upload('foto_chef')) {
 				// Jika gagal mengunggah foto baru, tampilkan pesan error
 				$error = $this->upload->display_errors();
 				// Lakukan penanganan error sesuai kebutuhan Anda
 			} else {
-				// Jika berhasil mengunggah foto baru, perbarui nilai kolom "foto_chef" dalam tabel database
+				// Jika berhasil mengunggah foto baru, perbarui nilai kolom "foto" dalam tabel database
 				$data['foto_chef'] = $this->upload->data('file_name');
 			}
 		} else {
@@ -285,12 +285,16 @@ class C_Noeri extends CI_Controller {
     	$DataUpdate['alamat_chef'] = $this->input->post('alamat_chef');
     	$DataUpdate['jenis_kelamin_chef'] = $this->input->post('jenis_kelamin_chef');
 		$DataUpdate['no_telp_chef'] = $this->input->post('no_telp_chef'); 
+		$DataUpdate['foto_chef'] = $this->input->post('foto_chef');
+		 
 
 		$id_chef = $this->input->post('id_chef'); 
 
 		$this->M_Chef->UpdateChef($DataUpdate, $id_chef);
 		redirect(site_url('C_Noeri/LinkChefAdmin')); 
 	}
+
+
 
 	public function AksiDeleteMenu($id_menu)
 	{
