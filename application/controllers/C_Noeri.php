@@ -327,7 +327,7 @@ class C_Noeri extends CI_Controller {
 		$data['keranjang'] = $keranjang;
 		$this->load->view('pesanan', $data);
 	}
-
+ 
 	public function tambahKeranjang($id_menu)
 	{
 	    // Dapatkan data menu berdasarkan ID menu
@@ -402,5 +402,29 @@ class C_Noeri extends CI_Controller {
         }
 		redirect(site_url('C_Noeri/ProsesPemesanan')); 
 	}
+
+	public function aksiOrder()
+	{
+		$order = $this->M_Pesanan->getAllPesanan();
+
+		$dataUpdate['nama'] = $this->input->post('nama');
+		$dataUpdate['id_status_pesanan'] = $this->input->post('id_status_pesanan');
+		$dataUpdate['id_pembayaran'] = $this->input->post('id_pembayaran');
+		$dataUpdate['waktu_pesanan'] = $this->input->post('waktu_pesanan');
+		$dataUpdate['total_harga'] = $this->input->post('total_harga');
+		$dataUpdate['tanggal_pesanan'] = $this->input->post('tanggal_pesanan');
+	
+		$id_pesanan = $this->input->post('id_pesanan');
+
+		$this->M_Pesanan->UpdateOrder($DataUpdate, $id_Order);
+		redirect (site_url('C_Noeri/LinkOrderAdmin')); 
+	}
+
+	public function AksiDeleteOrder($id_Pesanan)
+	{
+		$this->M_Pesanan->DeleteDataOrder($id_Pesanan);
+		redirect(site_url('C_Noeri/LinkOrderAdmin'));
+	}
+
 }
 
