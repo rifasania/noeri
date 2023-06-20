@@ -51,12 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/index')?>">Home</a></li> 
+          <li><a class="nav-link scrollto active" href="<?php echo site_url('C_Noeri/LinkMenu');?>">Menu</a></li>
+          <li><a class="nav-link scrollto " href="<?php echo site_url('C_Noeri/LinkChef');?>">Chef</a></li> 
+          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkLogin');?>">Order</a></li> 
+          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkLoginAdmin');?>">Admin Page</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -97,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="section-title">
           <h2>DAFTAR MENU</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>Berikut daftar menu yang tersedia di restoran kami.</p>
         </div>
 
 
@@ -105,27 +104,63 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".1">Food</li>
-              <li data-filter=".2">Drink</li>
-              <li data-filter=".3">Snacks</li>
+              <li data-filter=".filter-app">Food</li>
+              <li data-filter=".filter-card">Drink</li>
+              <li data-filter=".filter-web">Snacks</li>
             </ul>
           </div>
         </div>
 
-        <?php
-		    	foreach($data as $row){    
-		    ?>
 
         <div class="row portfolio-container">
+            
+            <?php
+		    	foreach($data_makanan as $row){    
+		    ?>
 
-          <div class="col-lg-4 col-md-6 portfolio-item 3" >
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app" >
+            <img src="<?php echo base_url();?>/assets/img/menu/<?= $row->foto_menu; ?>"  class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4><?= $row->nama_menu; ?> </h4>
+              <p>RP. <?=number_format($row->harga,0,"",".")?> </p> 
+              
+              
+            </div>
+          </div>
+
+          <?php
+          }
+          ?>
+
+            <?php
+		    	foreach($data_minuman as $row){    
+		    ?>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card" >
             <img src="<?php echo base_url();?>/assets/img/menu/<?= $row->foto_menu; ?>"  class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4><?= $row->nama_menu; ?> </h4>
               <p>RP. <?=number_format($row->harga,0,"",".")?> </p>
               
-              <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-              <a href="portfolio-details.html" data-gallery="portfolioDetailsGallery" data-glightbox="type: external" class="portfolio-details-lightbox details-link" title="Portfolio Details"><i class="bx bx-link"></i></a>
+              
+            </div>
+          </div>
+
+          <?php
+          }
+          ?>
+
+            <?php
+		    	foreach($data_snack as $row){    
+		    ?>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web" >
+            <img src="<?php echo base_url();?>/assets/img/menu/<?= $row->foto_menu; ?>"  class="img-fluid" alt="">
+            <div class="portfolio-info">
+              <h4><?= $row->nama_menu; ?> </h4>
+              <p>RP. <?=number_format($row->harga,0,"",".")?> </p>
+              
+              
             </div>
           </div>
 
@@ -133,7 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           }
           ?>
           
-        </div>
+      
 
       </div>
     </section><!-- End Portfolio Section -->

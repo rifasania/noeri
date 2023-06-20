@@ -54,13 +54,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<nav id="navbar" class="navbar">
 					<ul>
-						<li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-						<li><a class="nav-link scrollto" href="#about">About</a></li>
-						<li>
-							<a class="nav-link scrollto" href="#portfolio">Portfolio</a>
-						</li>
-						<li><a class="nav-link scrollto" href="#team">Team</a></li>
-						<li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+						<li><a class="nav-link scrollto " href="<?php echo site_url('C_Noeri/index')?>">Home</a></li> 
+						<li><a class="nav-link scrollto " href="<?php echo site_url('C_Noeri/LinkMenu');?>">Menu</a></li>
+          				<li><a class="nav-link scrollto active" href="<?php echo site_url('C_Noeri/LinkChef');?>">Chef</a></li> 
+          				<li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkLogin');?>">Order</a></li> 
+          				<li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkLoginAdmin');?>">Admin Page</a></li>
 					</ul>
 					<i class="bi bi-list mobile-nav-toggle"></i>
 				</nav>
@@ -100,10 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<div class="section-title">
 							<h2>Chef</h2>
 							<p>
-								Magnam dolores commodi suscipit. Necessitatibus eius consequatur
-								ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam
-								quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
-								Quia fugiat sit in iste officiis commodi quidem hic quas.
+								Berikut merupakan daftar-daftar chef berkualitas yang bekerja di restoran kami.
 							</p>
 						</div>
 
