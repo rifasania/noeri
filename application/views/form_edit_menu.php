@@ -336,7 +336,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </td> 
                     <td>
                       <div class="input-group input-group-outline my-2"> 
-                      <input type="file" class="form-control" name="foto" >
+                      <input type="file" class="form-control" name="foto_menu" >
                       </div>
                     </td>                  
                   </tr>

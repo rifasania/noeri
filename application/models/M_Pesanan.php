@@ -79,7 +79,11 @@ class M_Pesanan extends CI_Model {
     public  function DeletePesanan($id)
     {
         $this->db->where('id_pesanan', $id);
+        $this->db->delete('pesanan_menu');
+        
+        $this->db->where('id_pesanan', $id);
         $this->db->delete('pesanan');
+        
     }
     
 }

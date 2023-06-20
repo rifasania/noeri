@@ -255,7 +255,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <?php echo form_open_multipart('C_Noeri/AksiEditPesanan'); ?>
                   <tr>  
                       <td> 
-		          		<input type="hidden" name="id_pesanan" value="<?php echo $data_pesanan->id_pesanan ?>" disabled> 
+		          		<input type="hidden" name="id_pesanan" value="<?php echo $data_pesanan->id_pesanan ?>"> 
 		          	  </td>
                   </tr>
                   <tr>
@@ -264,7 +264,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </td>  
                     <td>
                       <div class="input-group input-group-outline my-2"> 
-                      <input type="text" class="form-control" name="nama" value="<?php echo $data_pesanan->nama ?>" disabled>
+                      <input type="text" class="form-control" name="nama" value="<?php echo $data_pesanan->nama ?>">
                       </div>
                     </td>                  
                   </tr>
@@ -274,7 +274,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </td> 
                     <td>
                       <div class="input-group input-group-outline my-2"> 
-                      <input type="text" class="form-control" name="total_harga" value="<?php echo $data_pesanan->total_harga ?>" disabled>
+                      <input type="text" class="form-control" name="total_harga" value="<?php echo $data_pesanan->total_harga ?>">
                       </div>
                     </td>                  
                   </tr>
@@ -284,7 +284,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </td> 
                     <td>
                       <div class="input-group input-group-outline my-2"> 
-                      <select class="form-control form-select" name="id_pembayaran" disabled>
+                      <select class="form-control form-select" name="id_pembayaran">
                         <?php             
                            //ulangi untuk semua elemen pendidikan
                            foreach ($bayar as $b){
@@ -304,7 +304,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </td> 
                     <td>
                       <div class="input-group input-group-outline my-2"> 
-                      <input type="text" class="form-control" name="tanggal_pesanan" value="<?php echo $data_pesanan->tanggal_pesanan ?>" disabled>
+                      <input type="text" class="form-control" name="tanggal_pesanan" value="<?php echo $data_pesanan->tanggal_pesanan ?>">
                       </div>
                     </td>                  
                   </tr>
@@ -314,7 +314,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     </td> 
                     <td>
                       <div class="input-group input-group-outline my-2"> 
-                      <input type="text" class="form-control" name="waktu_pesanan" value="<?php echo $data_pesanan->waktu_pesanan ?>" disabled>
+                      <input type="text" class="form-control" name="waktu_pesanan" value="<?php echo $data_pesanan->waktu_pesanan ?>">
                       </div>
                     </td>                  
                   </tr>

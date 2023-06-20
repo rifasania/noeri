@@ -220,28 +220,52 @@ class C_Noeri extends CI_Controller {
 
 	public function AksiEditMenu()
 	{
-		$data_menu = $this->M_Menu->getDataMenu($id);
+
+		$data_Menu = $this->M_Menu->getDataMenu($id);
 
 		// Cek apakah ada file foto baru yang diunggah
-		if ($_FILES['foto_menu']['name']) {
+		if ($_FILES['foto_menu']) {
 			// Mengunggah file foto baru
 			$config['upload_path'] = './assets/img/menu';
 			$config['allowed_types'] = 'jpg|jpeg|png'; 
 	
 			$this->load->library('upload', $config);
 	
-			if (!$this->upload->do_upload('foto')) {
+			if (!$this->upload->do_upload('foto_menu')) {
 				// Jika gagal mengunggah foto baru, tampilkan pesan error
 				$error = $this->upload->display_errors();
 				// Lakukan penanganan error sesuai kebutuhan Anda
 			} else {
-				// Jika berhasil mengunggah foto baru, perbarui nilai kolom "foto_menu" dalam tabel database
-				$data['foto_menu'] = $this->upload->data('file_name');
+				// Jika berhasil mengunggah foto baru, perbarui nilai kolom "foto" dalam tabel database
+				$DataUpdate['foto_menu'] = $this->upload->data('file_name');
 			}
 		} else {
 			// Jika tidak ada file foto baru yang diunggah, tetap gunakan foto yang sebelumnya
-			$data['foto_menu'] = $data_menu->foto_menu;
-		}
+			$DataUpdate['foto_menu'] = $data_Menu->foto_menu;
+	   	}
+
+		// $data_menu = $this->M_Menu->getDataMenu($id);
+
+		// // Cek apakah ada file foto baru yang diunggah
+		// if ($_FILES['foto_menu']['name']) {
+		// 	// Mengunggah file foto baru
+		// 	$config['upload_path'] = './assets/img/menu';
+		// 	$config['allowed_types'] = 'jpg|jpeg|png'; 
+	
+		// 	$this->load->library('upload', $config);
+	
+		// 	if (!$this->upload->do_upload('foto_menu')) {
+		// 		// Jika gagal mengunggah foto baru, tampilkan pesan error
+		// 		$error = $this->upload->display_errors();
+		// 		// Lakukan penanganan error sesuai kebutuhan Anda
+		// 	} else {
+		// 		// Jika berhasil mengunggah foto baru, perbarui nilai kolom "foto_menu" dalam tabel database
+		// 		$DataUpdate['foto_menu'] = $this->upload->data('file_name');
+		// 	}
+		// } else {
+		// 	// Jika tidak ada file foto baru yang diunggah, tetap gunakan foto yang sebelumnya
+		// 	$DataUpdate['foto_menu'] = $data_menu->foto_menu;
+		// }
 
 		// $DataUpdate['id_menu'] = $this->input->post('id_menu');
 		$DataUpdate['nama_menu'] = $this->input->post('nama_menu');
@@ -249,6 +273,7 @@ class C_Noeri extends CI_Controller {
     	$DataUpdate['deskripsi'] = $this->input->post('deskripsi');
 		$DataUpdate['id_chef'] = $this->input->post('id_chef');
     	$DataUpdate['id_jenis'] = $this->input->post('id_jenis');
+    	// $DataUpdate['foto_m'] = $this->input->post('foto_m');
 
 		$id_menu = $this->input->post('id_menu'); 
 
@@ -274,18 +299,18 @@ class C_Noeri extends CI_Controller {
 				// Lakukan penanganan error sesuai kebutuhan Anda
 			} else {
 				// Jika berhasil mengunggah foto baru, perbarui nilai kolom "foto" dalam tabel database
-				$data['foto_chef'] = $this->upload->data('file_name');
+				$DataUpdate['foto_chef'] = $this->upload->data('file_name');
 			}
 		} else {
 			// Jika tidak ada file foto baru yang diunggah, tetap gunakan foto yang sebelumnya
-			$data['foto_chef'] = $data_chef->foto_chef;
+			$DataUpdate['foto_chef'] = $data_chef->foto_chef;
 	   	}
  
 		$DataUpdate['nama_chef'] = $this->input->post('nama_chef');
     	$DataUpdate['alamat_chef'] = $this->input->post('alamat_chef');
     	$DataUpdate['jenis_kelamin_chef'] = $this->input->post('jenis_kelamin_chef');
 		$DataUpdate['no_telp_chef'] = $this->input->post('no_telp_chef'); 
-		$DataUpdate['foto_chef'] = $this->input->post('foto_chef');
+		//$DataUpdate['foto_chef'] = $this->input->post('foto_chef');
 		 
 
 		$id_chef = $this->input->post('id_chef'); 
@@ -423,8 +448,8 @@ class C_Noeri extends CI_Controller {
 		$id_status_pesanan = $this->input->post('id_status_pesanan');
 		$id_pembayaran = $this->input->post('id_pembayaran');
 		$total_harga = $this->input->post('total_harga');
-		// $tanggal_pesanan = $this->input->post('tanggal_pesanan');
-		// $waktu_pesanan = $this->input->post('waktu_pesanan');
+		$tanggal_pesanan = $this->input->post('tanggal_pesanan');
+		$waktu_pesanan = $this->input->post('waktu_pesanan');
 
 		$DataUpdate = array(
 			'id_pesanan' => $id_pesanan, 
@@ -432,8 +457,8 @@ class C_Noeri extends CI_Controller {
 			'id_status_pesanan' => $id_status_pesanan,
 			'id_pembayaran' => $id_pembayaran,
 			'total_harga' => $total_harga,
-			// 'tanggal_pesanan' => $tanggal_pesanan,
-			// 'waktu_pesanan' => $waktu_pesanan,
+			'tanggal_pesanan' => $tanggal_pesanan,
+			'waktu_pesanan' => $waktu_pesanan,
 		); 
 
 		print_r($DataUpdate);
