@@ -279,7 +279,7 @@ class C_Noeri extends CI_Controller {
 		} else {
 			// Jika tidak ada file foto baru yang diunggah, tetap gunakan foto yang sebelumnya
 			$data['foto_chef'] = $data_chef->foto_chef;
-		}
+	   	}
  
 		$DataUpdate['nama_chef'] = $this->input->post('nama_chef');
     	$DataUpdate['alamat_chef'] = $this->input->post('alamat_chef');
@@ -464,6 +464,24 @@ class C_Noeri extends CI_Controller {
 	{
 		$this->M_Pesanan->DeletePesanan($id_pesanan);
 		redirect(site_url('C_Noeri/LinkOrderAdmin'));
+	}
+
+	public function AksiUpdateOrder($id_pesanan)
+	{
+		global $conn;
+		$id = $order['id_pesanan'];
+		$nama = $order['nama'];
+		$status =$order['id_status_pesanan'];
+		$pembayaran = $order['id-pembayaran'];
+		$waktu = $order['waktu_pesanan'];
+		$harga = $order['total_harga'];
+		$tanggal_pesanan=$order['tanggal_pesanan'];
+
+		$Order_pesanan = aksiOrder();
+		if($status != "")
+		{
+			 
+		}
 	}
 
 }
