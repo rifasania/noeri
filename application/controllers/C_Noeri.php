@@ -492,5 +492,16 @@ class C_Noeri extends CI_Controller {
 		}
 	}
 
+	public function Detail_pesanan($id_pesanan)
+	{
+		id_pesanan= $this->input->post('id_pesanan');
+		$nama = $this->input->post('nama'); 
+		$id_status_pesanan = $this->input->post('id_status_pesanan');
+		$id_pembayaran = $this->input->post('id_pembayaran');
+		$total_harga = $this->input->post('total_harga');
+		$tanggal_pesanan = $this->input->post('tanggal_pesanan');
+		$waktu_pesanan = $this->input->post('waktu_pesanan');
+	}
+
 }
 

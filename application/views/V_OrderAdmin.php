@@ -301,8 +301,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       
                       </td>
                       <td class="align-middle text-center">
-                      <a class="btn bg-gradient-primary w-45 my-4 mb-2" href="<?php echo site_url('C_Noeri/FormEditPesanan/'). $row->id_pesanan ?>">Update</a>
-                      <a class="btn bg-gradient-primary w-45 my-4 mb-2" href="<?php echo site_url('C_Noeri/AksiDeletePesanan/'). $row->id_pesanan ?>">Delete</a>
+                      <a class="btn bg-gradient-primary w-28 my-3 mb-1" href="<?php echo site_url('C_Noeri/FormEditPesanan/'). $row->id_pesanan ?>">Update</a>
+                      <a class="btn bg-gradient-primary w-28 my-3 mb-1" href="<?php echo site_url('C_Noeri/detail_pesanan/'). $row->id_pesanan ?>">Detail</a>
+                      <a class="btn bg-gradient-primary w-28 my-3 mb-1" href="<?php echo site_url('C_Noeri/AksiDeletePesanan/'). $row->id_pesanan ?>">Delete</a>
                       </td>
                     </tr>
 
