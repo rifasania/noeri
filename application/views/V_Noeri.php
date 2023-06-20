@@ -53,11 +53,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li> 
-          <li><a class="nav-link scrollto " href="<?php echo site_url('C_Noeri/LinkMenu');?>">Menu</a></li> 
+          <li><a class="nav-link scrollto active" href="<?php echo site_url('C_Noeri/index');?>">Home</a></li> 
+          <li><a class="nav-link scrollto " href="<?php echo site_url('C_Noeri/LinkOrder');?>">Menu</a></li> 
           <li><a class="nav-link scrollto " href="<?php echo site_url('C_Noeri/LinkChef');?>">Chef</a></li> 
-          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkLogin');?>">Order</a></li> 
-          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkLoginAdmin');?>">Admin Page</a></li>
+          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkPesanan');?>">Pesanan Anda</a></li> 
+          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Login/logout');?>">Logout</a></li> 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -229,7 +229,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="text-center">
           <h3>Order Now!!!</h3>
           <p>Pesan menu makanan yang Anda inginkan. Kami akan menyiapkan makanan untuk Anda dengan sepenuh hati.</p>
-          <a class="cta-btn" href="<?php echo site_url('C_Noeri/LinkMenu') ?>">Go to Menu</a>
+          <a class="cta-btn" href="<?php echo site_url('C_Noeri/LinkOrder') ?>">Go to Menu</a>
         </div>
 
       </div>

@@ -12,10 +12,19 @@ class M_Login extends CI_Model {
         {
             foreach($query->result() as $row)
             {
-                $sess = array ('usn_user' => $row->usn_user, 'pass_user' => $row->pass_user);
+                $sess = array (
+                    'usn_user' => $row->usn_user, 
+                    'pass_user' => $row->pass_user,
+                    // 'id_role' => $row->id_role
+                );
+                $this->session->get_userdata($sess);
+                if($row->id_role == 1) {
+                    redirect('C_Noeri/index');
+                } else if($row->id_role == 2) {
+                    redirect('C_Admin/index');
+                }
             }
-            $this->session->get_userdata($sess);
-            redirect('C_Noeri/LinkOrder');
+            
         }
         else
         {
@@ -24,7 +33,7 @@ class M_Login extends CI_Model {
             // window.location = 'LinkLogin';
             // </script>";
             $this->session->set_flashdata('info', 'Maaf! Username dan Password Salah!');
-            redirect('C_Noeri/LinkLogin');
+            redirect('C_Login/index');
         }
     }
 

@@ -54,8 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/index')?>">Home</a></li> 
           <li><a class="nav-link scrollto active" href="<?php echo site_url('C_Noeri/LinkMenu');?>">Menu</a></li>
           <li><a class="nav-link scrollto " href="<?php echo site_url('C_Noeri/LinkChef');?>">Chef</a></li> 
-          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkLogin');?>">Order</a></li> 
-          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkLoginAdmin');?>">Admin Page</a></li>
+          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkOrder');?>">Order</a></li> 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
