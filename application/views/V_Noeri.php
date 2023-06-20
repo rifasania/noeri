@@ -53,12 +53,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto " href="<?php echo site_url('C_Noeri/LinkChef');?>">Chef</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkLogin');?>">Order</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li> 
+          <li><a class="nav-link scrollto " href="<?php echo site_url('C_Noeri/LinkMenu');?>">Menu</a></li> 
+          <li><a class="nav-link scrollto " href="<?php echo site_url('C_Noeri/LinkChef');?>">Chef</a></li> 
+          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkLogin');?>">Order</a></li> 
           <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkLoginAdmin');?>">Admin Page</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -278,7 +276,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  gudeg nya enak recommended, harganya terjangkau, pelayanan sangat ramah
+                  Gudeg nya enak recommended, harganya terjangkau, pelayanan sangat ramah
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-3.jpg" class="testimonial-img" alt="">
@@ -291,7 +289,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  pelayanan perasmanan nya sangat baik, harganya terjangkau sangat wort it, penyajian makanan dari chef nya sangat lezatttt
+                  Pelayanan perasmanan nya sangat baik, harganya terjangkau sangat wort it, penyajian makanan dari chef nya sangat lezatttt
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-4.jpg" class="testimonial-img" alt="">
@@ -304,7 +302,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <div class="testimonial-item">
                 <p>
                   <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                 pelayanan ramahh banget, menu makanan nya sangat enakkkkkkkk, murahhhhhh sangat terjangkau 
+                 Pelayanan ramahh banget, menu makanan nya sangat enakkkkkkkk, murahhhhhh sangat terjangkau 
                   <i class="bx bxs-quote-alt-right quote-icon-right"></i>
                 </p>
                 <img src="assets/img/testimonials/testimonials-5.jpg" class="testimonial-img" alt="">
@@ -370,7 +368,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               </div>
               <div class="member-info">
                 <h4>Rifa Sania</h4>
-                <span>IT Manager</span>
+                <span>Back-End Developer</span>
               </div>
             </div>
           </div>
