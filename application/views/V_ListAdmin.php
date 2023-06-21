@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="<?php echo site_url('C_Admin/LinkMenuAdmin')?>">
+          <a class="nav-link text-white " href="<?php echo site_url('C_Admin/LinkMenuAdmin')?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">table_view</i>
             </div>
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white active bg-gradient-primary" href="<?php echo site_url('C_Admin/LinkOrderAdmin')?>">
+          <a class="nav-link text-white " href="<?php echo site_url('C_Admin/LinkOrderAdmin')?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">receipt_long</i>
             </div>
@@ -85,23 +85,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="<?php echo site_url('C_Admin/ListUser')?>">
+          <a class="nav-link text-white " href="<?php echo site_url('C_Admin/ListUser')?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">person</i>
             </div>
             <span class="nav-link-text ms-1">List User</span>
           </a>
         </li>
-       
+
         <li class="nav-item">
-          <a class="nav-link text-white" href="<?php echo site_url('C_Admin/ListAdmin')?>">
+          <a class="nav-link text-white active bg-gradient-primary" href="<?php echo site_url('C_Admin/ListAdmin')?>">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
             <i class="material-icons opacity-10">person</i>
             </div>
             <span class="nav-link-text ms-1">List Admin</span>
           </a>
         </li>
-        
+       
         <li class="nav-item mt-3">
           <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
         </li>
@@ -127,16 +127,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">List Order</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">List Admin</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">List Order</h6>
+          <h6 class="font-weight-bolder mb-0">List Admin</h6>
         </nav>
+
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
             
+          </div>
+          <ul class="navbar-nav  justify-content-end">
+            <li class="nav-item d-flex align-items-center">
+              <a class="btn btn-outline-primary btn-sm mb-0 me-3" href="<?php echo site_url('C_Admin/FormAddAdmin')?>">Add Admin</a>
+            </li>
+            
+           
           </ul>
         </div>
       </div>
+        
     </nav>
     <!-- End Navbar -->
     <div class="container-fluid py-4">
@@ -145,7 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">List Order</h6>
+                <h6 class="text-white text-capitalize ps-3">List Admin</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -154,63 +163,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <thead>
                     <tr>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total Harga</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pembayaran</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tanggal</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Waktu</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Username</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Nama Lengkap</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No. Telp</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
                     </tr>
                   </thead>
                   <tbody>
                     <?php
                         $cacah = 1;
-		    	        foreach($order as $row){    
+		    	        foreach($data as $row){    
 		            ?>
                     <tr>
                       <td class="align-middle text-center">
                         <h6 class="mb-0 text-sm"><?= $cacah ?></h6>
                       </td>
-                      <td>
-                      <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"><?= $row->nama; ?></h6>     
-                          </div>
-                        </div>                  
+                      <td class="align-middle text-center text-sm">
+                        <h6 class="mb-0 text-sm"><?= $row->usn_user; ?></h6>                        
                       </td>
                       <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm"><?= $row->total_harga; ?></h6>
+                        <h6 class="mb-0 text-sm"><?= $row->email_user; ?></h6>
                       </td>
-                     
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->metode_bayar; ?></h6>
-                      </td>   
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->tanggal_pesanan; ?></h6>
-                      </td> 
-
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->waktu_pesanan; ?></h6>
-                      </td> 
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->keterangan_status; ?></h6>
-                      </td> 
-                      
+                      <td class="align-middle text-center text-sm">
+                        <h6 class="mb-0 text-sm"><?= $row->nama_user; ?></h6>
                       </td>
                       <td class="align-middle text-center">
-<<<<<<< HEAD
-                      <a class="btn bg-gradient-primary w-28 my-3 mb-1" href="<?php echo site_url('C_Noeri/FormEditPesanan/'). $row->id_pesanan ?>">Update</a>
-                      <a class="btn bg-gradient-primary w-28 my-3 mb-1" href="<?php echo site_url('C_Noeri/detail_pesanan/'). $row->id_pesanan ?>">Detail</a>
-                      <a class="btn bg-gradient-primary w-28 my-3 mb-1" href="<?php echo site_url('C_Noeri/AksiDeletePesanan/'). $row->id_pesanan ?>">Delete</a>
-=======
-                      <a class="btn bg-gradient-primary w-25 my-4 mb-2" href="<?php echo site_url('C_Admin/FormEditPesanan/'). $row->id_pesanan ?>">Update</a>
-                      <a class="btn bg-gradient-primary w-25 my-4 mb-2" href="<?php echo site_url('C_Admin/AksiDeletePesanan/'). $row->id_pesanan ?>">Delete</a>
-                      <a class="btn bg-gradient-primary w-25 my-4 mb-2" href="<?php echo site_url('C_Admin/DetailPesanan/'). $row->id_pesanan ?>">Details</a>
-
->>>>>>> 424f0a54a1c5a4e6339990437ba5fd9a33804f6d
-                      </td>
+                        <h6 class="mb-0 text-sm"><?= $row->no_telp_user; ?></h6>
+                      </td>      
+                      <td class="align-middle text-center">
+                      <a class="btn bg-gradient-primary w-50 my-2 mb-2" href="<?php echo site_url('C_Admin/AksiDeleteAdmin/'). $row->id_user ?>">Delete</a>                
+                        </td>
                     </tr>
+
 
                     <?php
                         $cacah++;
@@ -235,9 +220,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   document.write(new Date().getFullYear())
                 </script>,
                 made with <i class="fa fa-heart"></i> by
-                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank"> Noeri Kitchen</a>
+                <a href="https://www.creative-tim.com" class="font-weight-bold" target="_blank">Noeri Kitchen</a>
                 for a better web.
               </div>
+            </div>
+            <div class="col-lg-6">
+              <ul class="nav nav-footer justify-content-center justify-content-lg-end">
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com" class="nav-link text-muted" target="_blank">Creative Tim</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/presentation" class="nav-link text-muted" target="_blank">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/blog" class="nav-link text-muted" target="_blank">Blog</a>
+                </li>
+                <li class="nav-item">
+                  <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-muted" target="_blank">License</a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -303,6 +304,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
           </div>
         </div>
+       
       </div>
     </div>
   </div>

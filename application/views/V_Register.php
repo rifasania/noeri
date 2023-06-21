@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				</span>
 
 
-                <form action="<?php echo site_url('C_Noeri/InsertRegister')?>" method="post" name="register" class="login100-form validate-form p-b-33 p-t-5">
+                <form action="<?php echo site_url('C_Login/InsertRegister')?>" method="post" name="register" class="login100-form validate-form p-b-33 p-t-5">
                     <div class="wrap-input100 validate-input" data-validate = "Enter your name">
 						<input class="input100" type="text" name="nama_user" id="nama_user" placeholder="Full Name">
 						<span class="focus-input100" data-placeholder="&#xe82a;"></span>
@@ -67,6 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<input class="input100" type="password" name="pass_user" id="pass_user" placeholder="Password">
 						<span class="focus-input100" data-placeholder="&#xe80f;"></span>
 					</div>
+					<input type="hidden" name="id_role" value="1" > 
 
 					<div class="container-login100-form-btn m-t-32">
 						<button class="login100-form-btn" type="submit" value="submit" name="register">

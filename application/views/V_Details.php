@@ -127,9 +127,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">List Order</li>
+            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Details Order</li>
           </ol>
-          <h6 class="font-weight-bolder mb-0">List Order</h6>
+          <h6 class="font-weight-bolder mb-0">Details Order</h6>
         </nav>
         <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
           <div class="ms-md-auto pe-md-3 d-flex align-items-center">
@@ -145,7 +145,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">List Order</h6>
+                <h6 class="text-white text-capitalize ps-3">Details Order</h6>
               </div>
             </div>
             <div class="card-body px-0 pb-2">
@@ -154,19 +154,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <thead>
                     <tr>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total Harga</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Pembayaran</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Tanggal</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Waktu</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Status</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Nama</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Harga</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Total</th> 
                     </tr>
                   </thead>
                   <tbody>
                     <?php
                         $cacah = 1;
-		    	        foreach($order as $row){    
+		    	        foreach($data_pesanan as $row){    
 		            ?>
                     <tr>
                       <td class="align-middle text-center">
@@ -175,41 +171,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                       <td>
                       <div class="d-flex px-2 py-1">
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm"><?= $row->nama; ?></h6>     
+                            <h6 class="mb-0 text-sm"><?= $row->nama_menu; ?></h6>     
                           </div>
                         </div>                  
                       </td>
                       <td class="align-middle text-center text-sm">
-                        <h6 class="mb-0 text-sm"><?= $row->total_harga; ?></h6>
+                        <h6 class="mb-0 text-sm"><?= $row->harga; ?></h6>
                       </td>
                      
                       <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->metode_bayar; ?></h6>
+                        <h6 class="mb-0 text-sm"><?= $row->jumlah; ?></h6>
                       </td>   
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->tanggal_pesanan; ?></h6>
-                      </td> 
-
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->waktu_pesanan; ?></h6>
-                      </td> 
-                      <td class="align-middle text-center">
-                        <h6 class="mb-0 text-sm"><?= $row->keterangan_status; ?></h6>
-                      </td> 
-                      
-                      </td>
-                      <td class="align-middle text-center">
-<<<<<<< HEAD
-                      <a class="btn bg-gradient-primary w-28 my-3 mb-1" href="<?php echo site_url('C_Noeri/FormEditPesanan/'). $row->id_pesanan ?>">Update</a>
-                      <a class="btn bg-gradient-primary w-28 my-3 mb-1" href="<?php echo site_url('C_Noeri/detail_pesanan/'). $row->id_pesanan ?>">Detail</a>
-                      <a class="btn bg-gradient-primary w-28 my-3 mb-1" href="<?php echo site_url('C_Noeri/AksiDeletePesanan/'). $row->id_pesanan ?>">Delete</a>
-=======
-                      <a class="btn bg-gradient-primary w-25 my-4 mb-2" href="<?php echo site_url('C_Admin/FormEditPesanan/'). $row->id_pesanan ?>">Update</a>
-                      <a class="btn bg-gradient-primary w-25 my-4 mb-2" href="<?php echo site_url('C_Admin/AksiDeletePesanan/'). $row->id_pesanan ?>">Delete</a>
-                      <a class="btn bg-gradient-primary w-25 my-4 mb-2" href="<?php echo site_url('C_Admin/DetailPesanan/'). $row->id_pesanan ?>">Details</a>
-
->>>>>>> 424f0a54a1c5a4e6339990437ba5fd9a33804f6d
-                      </td>
+                     
                     </tr>
 
                     <?php

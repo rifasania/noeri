@@ -51,12 +51,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/index');?>">Home</a></li> 
+          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Noeri/LinkOrder');?>">Menu</a></li> 
+          <li><a class="nav-link scrollto " href="<?php echo site_url('C_Noeri/LinkChef');?>">Chef</a></li> 
+          <li><a class="nav-link scrollto active" href="<?php echo site_url('C_Noeri/LinkPesanan');?>">Pesanan Anda</a></li> 
+          <li><a class="nav-link scrollto" href="<?php echo site_url('C_Login/logout');?>">Logout</a></li> 
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -81,10 +80,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>Daftar Menu</h2>
+          <h2>Daftar Pesanan</h2>
           <ol>
             <li><a href="<?php echo site_url('C_Noeri/index')?>">Home</a></li>
-            <li>Daftar Menu</li>
+            <li>Daftar Pesanan</li>
           </ol>
         </div>
 
@@ -126,6 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    <th>Menu</th>
                    <th>Total</th>
                    <th>Harga</th>
+                   <th></th>
                  </tr>
                </thead>
                     
@@ -140,6 +140,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    <td><?php echo $item['name'] ?></td>
                    <td><?php echo $item['qty'] ?></td>
                    <td>Rp. <?php echo number_format($item['price'], 0,',','.')  ?></td>
+                   <td align="center">
+                    <a href="<?php echo site_url('C_Noeri/hapusMenuDariKeranjang/'). $item['rowid'] ?>" class="btn btn-secondary btn-sm">Hapus Menu</a>
+                    </td>
                  </tr>
 
                  <?php
@@ -150,6 +153,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                  <tr>
                     <td colspan = "3">Total Harga</td>
                  <td>Rp. <?php echo number_format($this->cart->total(), 0,',','.')  ?></td>
+                 
                  </tr>
                  
              </table>
